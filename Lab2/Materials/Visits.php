@@ -22,7 +22,7 @@
                 throw new RuntimeException("начальная дата не может быть больше конечной");
 
             $query = "
-                SELECT action AS page, COUNT(*) AS visits_count
+                SELECT page, COUNT(*) AS visits_count
                 FROM visits
                 WHERE day BETWEEN '$begin' AND '$end'
                 GROUP BY page
@@ -155,7 +155,7 @@
 
 
             $query = "
-                SELECT action AS page, COUNT(*) AS visits_count
+                SELECT page, COUNT(*) AS visits_count
                 FROM visits
                 WHERE (day BETWEEN '$begin' AND '$end') AND (user = '$user')
                 GROUP BY page
@@ -252,7 +252,7 @@
 
 
             $query = "
-                SELECT action AS page, day
+                SELECT page, day
                 FROM visits
                 WHERE (day BETWEEN '$begin' AND '$end') AND (user = '$user')
                 ORDER BY day DESC;
@@ -301,7 +301,7 @@
             $query = "
                 SELECT user, day
                 FROM visits
-                WHERE (day BETWEEN '$begin' AND '$end') AND (action = '$page')
+                WHERE (day BETWEEN '$begin' AND '$end') AND (page = '$page')
                 ORDER BY day DESC;
             ";
 
@@ -337,7 +337,7 @@
             return $view;
         }
 
-        public function add_visit($action) {
+        public function add_visit($page) {
             session_start();
 
             if (isset($_SESSION['username'])) {
@@ -350,7 +350,7 @@
                 $user = $_SERVER['REMOTE_ADDR'];
 
             $is_ok = $this->db_ref->execute_query("
-                INSERT INTO visits(user, action) VALUE ('$user', '$action');
+                INSERT INTO visits(user, page) VALUE ('$user', '$page');
             ");
 
             if (!$is_ok)
