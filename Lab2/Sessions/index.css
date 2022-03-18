@@ -1,0 +1,47 @@
+body {
+    background-color:#808080;
+}
+
+div.register_form {
+    width: 500px;
+    margin: 1% auto;
+    background-color: #7c9b45;
+    text-align: center;
+    font: 14pt "Times New Roman";
+}
+
+h1 {
+    text-align: center;
+    font: 26pt "Times New Roman";
+    color: darkslateblue;
+    margin-bottom: 2%;
+}
+
+table.content {
+    border: 3px solid #3800ff;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    font: 12pt "Times New Roman";
+    caption-side: top;
+    color: black;
+}
+
+table.content caption {
+    font: 14pt "Times New Roman";
+    color: black;
+}
+
+table.content th {
+    border: 2px solid black;
+    background-color: brown;
+}
+
+table.content td {
+    border: 2px solid black;
+    background-color: chocolate;
+}
+
+table.content td:hover {
+    background-color: #6c13dc;
+}
