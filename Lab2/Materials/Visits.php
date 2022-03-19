@@ -13,7 +13,7 @@
             $this->db_ref = $db;
         }
 
-        private function get_visits_array_for_each_page($begin = null, $end = null) {
+        private function get_visits_array($begin = null, $end = null) {
             if ($begin == null)
                 $begin = '1000-01-01';
             if ($end == null)
@@ -22,7 +22,7 @@
                 throw new RuntimeException("начальная дата не может быть больше конечной");
 
             $query = "
-                SELECT page, COUNT(*) AS visits_count
+                SELECT page, SUM(count) AS visits_count
                 FROM visits
                 WHERE day BETWEEN '$begin' AND '$end'
                 GROUP BY page
@@ -43,8 +43,8 @@
             return $result;
         }
 
-        public function get_visits_table_for_each_page($begin = null, $end = null) {
-            $table = $this->get_visits_array_for_each_page($begin, $end);
+        public function get_visits_table($begin = null, $end = null) {
+            $table = $this->get_visits_array($begin, $end);
 
             $view = "";
             foreach ($table as $row) {
@@ -55,17 +55,17 @@
                     "<tr>" .
                     "<td>$page</td>" .
                     "<td>$visits_count</td>" .
-                    "<td><a href='index.php?page_hist=$page'>Хронология посещения страницы</a></td>" .
+                    "<td><a href='page_hist.php?page=$page'>Хронология посещения страницы</a></td>" .
                     "</tr>";
             }
 
             return $view;
         }
 
-        public function get_visits_diagram_for_each_page($begin = null, $end = null) {
+        public function get_visits_diagram($begin = null, $end = null) {
             putenv("GDFONTPATH=" . realpath("."));
 
-            $table = $this->get_visits_array_for_each_page($begin, $end);
+            $table = $this->get_visits_array($begin, $end);
 
             $im = imagecreate(IM_WIDTH, IM_HEIGHT);
 
@@ -111,7 +111,7 @@
         }
 
         private function get_visitors_array() {
-            $query = "SELECT user FROM visits;";
+            $query = "SELECT DISTINCT user FROM visits;";
 
             $query_result = $this->db_ref->execute_query($query);
             if (!$query_result)
@@ -137,8 +137,8 @@
                 $view .=
                     "<tr>" .
                     "<td>$user</td>" .
-                    "<td><a href='index.php?user_stat=$user'>Статистика посещений пользователя</a></td>" .
-                    "<td><a href='index.php?user_hist=$user'>Хронология посещений пользователя</a></td>" .
+                    "<td><a href='user_stat.php?user=$user'>Статистика посещений пользователя</a></td>" .
+                    "<td><a href='user_hist.php?user=$user'>Хронология посещений пользователя</a></td>" .
                     "</tr>";
             }
 
@@ -155,7 +155,7 @@
 
 
             $query = "
-                SELECT page, COUNT(*) AS visits_count
+                SELECT page, SUM(count) AS visits_count
                 FROM visits
                 WHERE (day BETWEEN '$begin' AND '$end') AND (user = '$user')
                 GROUP BY page
@@ -252,7 +252,7 @@
 
 
             $query = "
-                SELECT page, day
+                SELECT page, day, count
                 FROM visits
                 WHERE (day BETWEEN '$begin' AND '$end') AND (user = '$user')
                 ORDER BY day DESC;
@@ -279,11 +279,13 @@
             foreach ($table as $row) {
                 $page = $row['page'];
                 $day = $row['day'];
+                $count = $row['count'];
 
                 $view .=
                     "<tr>" .
                     "<td>$page</td>" .
                     "<td>$day</td>" .
+                    "<td>$count</td>" .
                     "</tr>";
             }
 
@@ -299,7 +301,7 @@
                 throw new RuntimeException("начальная дата не может быть больше конечной");
 
             $query = "
-                SELECT user, day
+                SELECT user, day, count
                 FROM visits
                 WHERE (day BETWEEN '$begin' AND '$end') AND (page = '$page')
                 ORDER BY day DESC;
@@ -326,11 +328,13 @@
             foreach ($table as $row) {
                 $user = $row['user'];
                 $day = $row['day'];
+                $count = $row['count'];
 
                 $view .=
                     "<tr>" .
                     "<td>$user</td>" .
                     "<td>$day</td>" .
+                    "<td>$count</td>" .
                     "</tr>";
             }
 
@@ -349,9 +353,7 @@
             else
                 $user = $_SERVER['REMOTE_ADDR'];
 
-            $is_ok = $this->db_ref->execute_query("
-                INSERT INTO visits(user, page) VALUE ('$user', '$page');
-            ");
+            $is_ok = $this->db_ref->execute_query("CALL insert_proc('$page', '$user');");
 
             if (!$is_ok)
                 throw new RuntimeException("Ошибка на сервере: не удалось добавить посещение");
