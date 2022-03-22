@@ -59,8 +59,8 @@ try {
 
         $username = 'guest';
         $user_level = 3;
-        session_register("username");
-        session_register("user_level");
+        $_SESSION['username'] = $username;
+        $_SESSION['user_level'] = $user_level;
     }
 
     if (isset($_POST['name'])) {

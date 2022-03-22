@@ -168,3 +168,13 @@
 [Tue Mar 22 08:58:10.254215 2022] [php7:notice] [pid 1358] [client 127.0.0.1:43870] PHP Notice:  Undefined index: visits_end in /home/andrey/web-labworks/RGZ/index.php on line 36, referer: http://localhost/RGZ/page_hist.php?page=index.php&begin=2022-03-22&end=
 [Tue Mar 22 08:58:10.254255 2022] [php7:notice] [pid 1358] [client 127.0.0.1:43870] PHP Stack trace:, referer: http://localhost/RGZ/page_hist.php?page=index.php&begin=2022-03-22&end=
 [Tue Mar 22 08:58:10.254268 2022] [php7:notice] [pid 1358] [client 127.0.0.1:43870] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0, referer: http://localhost/RGZ/page_hist.php?page=index.php&begin=2022-03-22&end=
+[Tue Mar 22 15:03:29.177764 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP Notice:  Undefined index: visits_begin in /home/andrey/web-labworks/RGZ/index.php on line 35, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:03:29.184267 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP Stack trace:, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:03:29.184300 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:03:29.184322 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP Notice:  Undefined index: visits_end in /home/andrey/web-labworks/RGZ/index.php on line 36, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:03:29.184329 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP Stack trace:, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:03:29.184336 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:03:29.199602 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP Warning:  imagepng(visits_diagram.png): failed to open stream: Permission denied in /home/andrey/web-labworks/RGZ/index.php on line 40, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:03:29.199627 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP Stack trace:, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:03:29.199636 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:03:29.199643 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP   2. imagepng() /home/andrey/web-labworks/RGZ/index.php:40, referer: http://localhost/RGZ/index.php

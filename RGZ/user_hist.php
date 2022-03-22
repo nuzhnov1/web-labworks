@@ -16,8 +16,8 @@ try {
     $user = $_GET['user'];
 
     if (isset($_GET['all']) || (count($_GET) == 1)) {
-        session_unregister("user_hist_begin");
-        session_unregister("user_hist_end");
+        unset($_SESSION['user_hist_begin']);
+        unset($_SESSION['user_hist_end']);
     }
 
     if (isset($_GET['begin']) || isset($_GET['end'])) {
@@ -27,15 +27,11 @@ try {
             </a>
         ";
 
-        if (isset($_GET['begin'])) {
-            $user_hist_begin = $_GET['begin'];
-            session_register("user_hist_begin");
-        }
+        if (isset($_GET['begin']))
+            $_SESSION['user_hist_begin'] = $_GET['begin'];
 
-        if (isset($_GET['end'])) {
-            $user_hist_end = $_GET['end'];
-            session_register("user_hist_end");
-        }
+        if (isset($_GET['end']))
+            $_SESSION['user_hist_end'] = $_GET['end'];
     }
     else
         $show_all = "";

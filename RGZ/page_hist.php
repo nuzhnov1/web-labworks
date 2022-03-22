@@ -16,8 +16,8 @@ try {
     $page = $_GET['page'];
 
     if (isset($_GET['all']) || (count($_GET) == 1)) {
-        session_unregister("page_hist_begin");
-        session_unregister("page_hist_end");
+        unset($_SESSION['page_hist_begin']);
+        unset($_SESSION['page_hist_end']);
     }
 
     if (isset($_GET['begin']) || isset($_GET['end'])) {
@@ -27,15 +27,11 @@ try {
             </a>
         ";
 
-        if (isset($_GET['begin'])) {
-            $page_hist_begin = $_GET['begin'];
-            session_register("page_hist_begin");
-        }
+        if (isset($_GET['begin']))
+            $_SESSION['page_hist_begin'] = $_GET['begin'];
 
-        if (isset($_GET['end'])) {
-            $page_hist_end = $_GET['end'];
-            session_register("page_hist_end");
-        }
+        if (isset($_GET['end']))
+            $_SESSION['page_hist_end'] = $_GET['end'];
     }
     else
         $show_all = "";

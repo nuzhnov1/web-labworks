@@ -9,8 +9,8 @@ try {
     verification();
 
     if (isset($_GET['all']) || (count($_GET) == 0)) {
-        session_unregister("visits_begin");
-        session_unregister("visits_end");
+        unset($_SESSION['visits_begin']);
+        unset($_SESSION['visits_end']);
     }
 
     if (isset($_GET['visits_begin']) || isset($_GET['visits_end'])) {
@@ -20,15 +20,11 @@ try {
             </a>
         ";
 
-        if (isset($_GET['visits_begin'])) {
-            $visits_begin = $_GET['visits_begin'];
-            session_register("visits_begin");
-        }
+        if (isset($_GET['visits_begin']))
+            $_SESSION['visits_begin'] = $_GET['visits_begin'];
 
-        if (isset($_GET['visits_end'])) {
-            $visits_end = $_GET['visits_end'];
-            session_register("visits_end");
-        }
+        if (isset($_GET['visits_end']))
+            $_SESSION['visits_end'] = $_GET['visits_end'];
     }
     else
         $show_all = "";
