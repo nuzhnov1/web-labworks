@@ -9,11 +9,18 @@ h1 {
     margin-bottom: 2%;
 }
 
+div.register {
+    margin: auto;
+    width: 400px;
+    height: 130px;
+    border: 3px solid black;
+    text-align: center;
+}
+
 table.content {
     border: 3px solid #3800ff;
     border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     font: 12pt "Times New Roman";
     caption-side: top;
     color: black;

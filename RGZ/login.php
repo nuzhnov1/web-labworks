@@ -1,5 +1,5 @@
 <?php
-include '../../Lab2/Materials/global.php';
+include '../Lab2/Materials/global.php';
 include 'error.php';
 
 global $g_users;
