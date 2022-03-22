@@ -178,3 +178,23 @@
 [Tue Mar 22 15:03:29.199627 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP Stack trace:, referer: http://localhost/RGZ/index.php
 [Tue Mar 22 15:03:29.199636 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0, referer: http://localhost/RGZ/index.php
 [Tue Mar 22 15:03:29.199643 2022] [php7:notice] [pid 1343] [client 127.0.0.1:34836] PHP   2. imagepng() /home/andrey/web-labworks/RGZ/index.php:40, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:07:50.835035 2022] [php7:notice] [pid 1341] [client 127.0.0.1:34958] PHP Notice:  Undefined index: visits_begin in /home/andrey/web-labworks/RGZ/index.php on line 35
+[Tue Mar 22 15:07:50.835094 2022] [php7:notice] [pid 1341] [client 127.0.0.1:34958] PHP Stack trace:
+[Tue Mar 22 15:07:50.835108 2022] [php7:notice] [pid 1341] [client 127.0.0.1:34958] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0
+[Tue Mar 22 15:07:50.835123 2022] [php7:notice] [pid 1341] [client 127.0.0.1:34958] PHP Notice:  Undefined index: visits_end in /home/andrey/web-labworks/RGZ/index.php on line 36
+[Tue Mar 22 15:07:50.835130 2022] [php7:notice] [pid 1341] [client 127.0.0.1:34958] PHP Stack trace:
+[Tue Mar 22 15:07:50.835137 2022] [php7:notice] [pid 1341] [client 127.0.0.1:34958] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0
+[Tue Mar 22 15:07:50.851288 2022] [php7:notice] [pid 1341] [client 127.0.0.1:34958] PHP Warning:  imagepng(visits_diagram.png): failed to open stream: Permission denied in /home/andrey/web-labworks/RGZ/index.php on line 40
+[Tue Mar 22 15:07:50.851344 2022] [php7:notice] [pid 1341] [client 127.0.0.1:34958] PHP Stack trace:
+[Tue Mar 22 15:07:50.851361 2022] [php7:notice] [pid 1341] [client 127.0.0.1:34958] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0
+[Tue Mar 22 15:07:50.851374 2022] [php7:notice] [pid 1341] [client 127.0.0.1:34958] PHP   2. imagepng() /home/andrey/web-labworks/RGZ/index.php:40
+[Tue Mar 22 15:08:17.474755 2022] [php7:notice] [pid 9240] [client 127.0.0.1:34964] PHP Notice:  Undefined index: visits_begin in /home/andrey/web-labworks/RGZ/index.php on line 35, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:08:17.474782 2022] [php7:notice] [pid 9240] [client 127.0.0.1:34964] PHP Stack trace:, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:08:17.474790 2022] [php7:notice] [pid 9240] [client 127.0.0.1:34964] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:08:17.474798 2022] [php7:notice] [pid 9240] [client 127.0.0.1:34964] PHP Notice:  Undefined index: visits_end in /home/andrey/web-labworks/RGZ/index.php on line 36, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:08:17.474802 2022] [php7:notice] [pid 9240] [client 127.0.0.1:34964] PHP Stack trace:, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:08:17.474807 2022] [php7:notice] [pid 9240] [client 127.0.0.1:34964] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:08:17.485755 2022] [php7:notice] [pid 9240] [client 127.0.0.1:34964] PHP Warning:  imagepng(visits_diagram.png): failed to open stream: Permission denied in /home/andrey/web-labworks/RGZ/index.php on line 40, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:08:17.485793 2022] [php7:notice] [pid 9240] [client 127.0.0.1:34964] PHP Stack trace:, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:08:17.485804 2022] [php7:notice] [pid 9240] [client 127.0.0.1:34964] PHP   1. {main}() /home/andrey/web-labworks/RGZ/index.php:0, referer: http://localhost/RGZ/index.php
+[Tue Mar 22 15:08:17.485811 2022] [php7:notice] [pid 9240] [client 127.0.0.1:34964] PHP   2. imagepng() /home/andrey/web-labworks/RGZ/index.php:40, referer: http://localhost/RGZ/index.php

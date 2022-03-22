@@ -51,7 +51,8 @@ try {
             <body>
                 <h1>Расчётно-графическое задание. Модуль учёта посещаемости сайта.</h1>
                 <div style='text-align: center; margin-bottom: 1%;'>
-                    <a href='index.php?truncate='>Очистить историю посещений</a>
+                    <a href='index.php?truncate='>Очистить историю посещений</a><br>
+                    <a href='exit.php'>Выйти из текущего сеанса</a>
                 </div>
                 <div style='display: flex; margin-bottom: 1%;'>
                     <div style='text-align: center; width: 47%; margin: 0 6% 0 0;'>
