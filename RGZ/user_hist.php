@@ -6,6 +6,8 @@ include_once 'common.php';
 global $g_visits;
 
 try {
+    verification();
+
     if (!isset($_GET['user'])) {
         echo generate_error_page("не задано имя пользователя");
         exit(-1);
@@ -13,7 +15,7 @@ try {
 
     $user = $_GET['user'];
 
-    if (isset($_GET['all'])) {
+    if (isset($_GET['all']) || (count($_GET) == 1)) {
         unset($_SESSION['user_hist_begin']);
         unset($_SESSION['user_hist_end']);
     }

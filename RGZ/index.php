@@ -6,7 +6,9 @@ include_once 'common.php';
 global $g_visits;
 
 try {
-    if (isset($_GET['all'])) {
+    verification();
+
+    if (isset($_GET['all']) || (count($_GET) == 0)) {
         unset($_SESSION['visits_begin']);
         unset($_SESSION['visits_end']);
     }

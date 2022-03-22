@@ -6,6 +6,8 @@ include_once 'common.php';
 global $g_visits;
 
 try {
+    verification();
+
     if (!isset($_GET['page'])) {
         echo generate_error_page("не задано название страницы");
         exit(-1);
@@ -13,7 +15,7 @@ try {
 
     $page = $_GET['page'];
 
-    if (isset($_GET['all'])) {
+    if (isset($_GET['all']) || (count($_GET) == 1)) {
         unset($_SESSION['page_hist_begin']);
         unset($_SESSION['page_hist_end']);
     }
