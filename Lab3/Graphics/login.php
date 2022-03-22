@@ -13,13 +13,14 @@ try {
     if (!$result)
         echo generate_error_page("Ошибка: пользователя с таким логином нет!");
     else {
-        $username = $result['username'];
-        $login = $result['login'];
         $hash = $result['hash'];
-        $user_level = $result['user_level'];
 
         if ($hash == crypt($password, "djsubsbin3912748")) {
             session_start();
+
+            $username = $result['username'];
+            $login = $result['login'];
+            $user_level = $result['user_level'];
 
             session_register("username");
             session_register("login");

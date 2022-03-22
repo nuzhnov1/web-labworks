@@ -24,7 +24,9 @@ try {
     $g_users->add_user($username, $login, crypt($password, "djsubsbin3912748"), $user_type);
 
     if ($user_level > 1) {
-        $user_level = $user_type;
+        $username = $_POST['username'];
+        $login = $_POST['login'];
+        $user_level = $_POST['user_type'];
 
         session_register("username");
         session_register("login");

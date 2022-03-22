@@ -38,15 +38,15 @@ echo "
                     <tbody>
                         <tr>
                             <td>Имя пользователя:</td>
-                            <td><input id='username' name='username' type='text' required pattern='\w+'></td>
+                            <td><input id='username' name='username' type='text' required pattern='\w{5,255}'></td>
                         </tr>
                         <tr>
                             <td>Логин:</td>
-                            <td><input id='login' name='login' type='text' required pattern='\w+'></td>
+                            <td><input id='login' name='login' type='text' required pattern='[\w_]{5,255}'></td>
                         </tr>
                         <tr>
                             <td>Пароль:</td>
-                            <td><input id='password' name='password' type='password' required pattern='\w{5,}'></td>
+                            <td><input id='password' name='password' type='password' required pattern='[\w_\-]{5,255}'></td>
                         </tr>
                     </tbody>
                 </table>

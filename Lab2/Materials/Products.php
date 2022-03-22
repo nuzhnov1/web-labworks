@@ -113,7 +113,14 @@ class Products {
         if (!$query_result)
             throw new RuntimeException("Ошибка на сервере: не удалось извлечь данные");
 
-        return $query_result->fetch_all(MYSQLI_ASSOC);
+        for ($result = array(); $row = $query_result->fetch_assoc();)
+            $result[] = $row;
+
+        mysqli_free_result($query_result);
+        if ($this->db_ref->get_errno())
+            throw new RuntimeException("Ошибка на сервере: не удалось извлечь данные");
+
+        return $result;
     }
 
     /**
@@ -135,7 +142,14 @@ class Products {
         if (!$query_result)
             throw new RuntimeException("Ошибка на сервере: не удалось извлечь данные");
 
-        return $query_result->fetch_all(MYSQLI_ASSOC);
+        for ($result = array(); $row = $query_result->fetch_assoc();)
+            $result[] = $row;
+
+        mysqli_free_result($query_result);
+        if ($this->db_ref->get_errno())
+            throw new RuntimeException("Ошибка на сервере: не удалось извлечь данные");
+
+        return $result;
     }
 
     /**
