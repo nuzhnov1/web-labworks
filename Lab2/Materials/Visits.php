@@ -353,7 +353,28 @@
             else
                 $user = $_SERVER['REMOTE_ADDR'];
 
-            $is_ok = $this->db_ref->execute_query("CALL insert_proc('$page', '$user');");
+            $cur_date = date("Y-m-d");
+            $query_result = $this->db_ref->execute_query("
+                SELECT COUNT(*) FROM visits
+                WHERE (user = '$user') AND (page = '$page') AND (day = '$cur_date');
+            ");
+            $visits_count = $query_result->fetch_array();
+            if (!$query_result && !$visits_count)
+                throw new RuntimeException("Ошибка на сервере: " . $this->db_ref->get_error());
+
+            $visits_count = $visits_count[0];
+
+            if ($visits_count > 0) {
+                $is_ok = $this->db_ref->execute_query("
+                    UPDATE visits SET count = count + 1
+                    WHERE (page = '$page') AND (user = '$user') AND (day = '$cur_date');
+                ");
+            }
+            else {
+                $is_ok = $this->db_ref->execute_query("
+                    INSERT INTO visits(page, user, day) VALUE ('$page', '$user', '$cur_date');
+                ");
+            }
 
             if (!$is_ok)
                 throw new RuntimeException("Ошибка на сервере: не удалось добавить посещение");

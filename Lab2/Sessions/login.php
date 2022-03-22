@@ -20,9 +20,10 @@ try {
 
         if ($hash == crypt($password, "djsubsbin3912748")) {
             session_start();
-            $_SESSION['username'] = $username;
-            $_SESSION['login'] = $login;
-            $_SESSION['user_level'] = $user_level;
+
+            session_register('username');
+            session_register('login');
+            session_register('user_level');
 
             header("Location: index.php");
         }

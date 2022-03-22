@@ -57,8 +57,10 @@ try {
         $insert_form = "";
         $delete_form = "";
 
-        $_SESSION['username'] = 'guest';
-        $_SESSION['user_level'] = 3;
+        $username = 'guest';
+        $user_level = 3;
+        session_register("username");
+        session_register("user_level");
     }
 
     if (isset($_POST['name'])) {

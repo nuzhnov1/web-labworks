@@ -24,9 +24,11 @@ try {
     $g_users->add_user($username, $login, crypt($password, "djsubsbin3912748"), $user_type);
 
     if ($user_level > 1) {
-        $_SESSION['username'] = $username;
-        $_SESSION['login'] = $login;
-        $_SESSION['user_level'] = $user_type;
+        $user_level = $user_type;
+
+        session_register("username");
+        session_register("login");
+        session_register("user_level");
     }
 
     if ($user_type == 1) {
